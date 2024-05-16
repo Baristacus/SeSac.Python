@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>폼 연습</title>
+</head>
+
+<body>
+    <section>
+        <h1>입력폼 만들기</h1>
+        <label for="id">아이디</label>
+        <input id="id" type="text">
+        <label for="pass">비밀번호</label>
+        <input id="pass" type="password">
+        <button type="submit">로그인</button>
+    </section>
+    <section>
+        <h1>선택박스 만들기</h1>
+        <label for="select1">선택하쇼</label>
+        <input type="radio" name="select1"> 국어
+        <input type="radio" name="select1"> 영어
+        <input type="radio" name="select1"> 수학
+    </section>
+    <section>
+        <h1>멀티 선택박스 만들기</h1>
+        <label for="check1">선택하쇼</label>
+        <input type="checkbox" name="check1"> 딸기
+        <input type="checkbox" name="check1"> 사과
+        <input type="checkbox" name="check1"> 바나나
+    </section>
+    <section>
+        <h1>풀다운 메뉴 만들기</h1>
+        <label for="drop1">선택하쇼</label>
+        <select name="drop1" id="drop1">
+            <option value="0" hidden>선택하쇼</option>
+            <option value="1">국어</option>
+            <option value="2">영어</option>
+            <option value="3">수학</option>
+        </select>
+    </section>
+    <section>
+        <h1>프로그래스바</h1>
+        <label for="progress">프로그래스바</label>
+        <progress id="progress" max="100" value="50"></progress>
+    </section>
+</body>
+
+</html>
