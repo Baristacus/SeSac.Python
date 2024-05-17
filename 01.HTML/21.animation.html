@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            animation: movemove 5s ease-in-out infinite;
+        }
+
+        @keyframes movemove {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(200px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .text {
+            animation: fadeout 5s ease-in-out infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes fadeout {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            margin-left: 50px;
+            background-color: orange;
+            border-radius: 25%;
+            animation: rotate 5s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <br>
+    <p class="text">Lorem ipsum dolor sit amet.</p>
+    <br>
+    <div class="circle"></div>
+</body>
+
+</html>

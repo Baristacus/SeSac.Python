@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            color: white;
+            position: relative;
+            overflow: hidden auto;
+        }
+
+        .div1 {
+            background-color: orange;
+            z-index: 1;
+        }
+
+        .div2 {
+            background-color: blue;
+            z-index: 2;
+            bottom: 50px;
+        }
+
+        .div3 {
+            background-color: red;
+            z-index: 3;
+            bottom: 100px;
+        }
+
+        .div4 {
+            background-color: purple;
+            z-index: 4;
+            bottom: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Z-index를 통한 레이어 순서 변경</h1>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores minus deserunt corporis pariatur
+        delectus cupiditate ea alias esse. Voluptatum autem consequuntur rem iusto temporibus expedita deserunt tempora
+        impedit cupiditate quos.</div>
+</body>
+
+</html>

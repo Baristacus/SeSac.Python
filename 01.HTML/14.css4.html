@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            display: inline-block;
+            background-color: orange;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .rel {
+            background-color: orangered;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            background-image: url(img/sample-unsplash.jpg);
+            background-size: auto 100%;
+        }
+
+        p {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rel">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div class="container">
+        <p>여행가자</p>
+    </div>
+</body>
+
+</html>

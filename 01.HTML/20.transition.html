@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다양한 CSS 트랜지션</title>
+
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transition-property: width, height;
+            transition-duration: 1.0s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .square:hover {
+            width: 200px;
+            height: 200px;
+        }
+
+        .button:hover {
+            color: #c30d23;
+            background-color: antiquewhite;
+            transition-property: color, background-color;
+            transition-duration: 1.0s;
+        }
+
+        .img:hover {
+            transform: rotate(720deg);
+            transition: transform 1.0s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .gradient:hover {
+            background: linear-gradient(to bottom, red, orange, yellow, green, blue, navy, purple);
+            transition: background 1.0s;
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="square"></div>
+    <br>
+    <button class="button">Hover me</button>
+    <br>
+    <img src="img/5_spring.jpg" class="img" alt="">
+    <br>
+    <div class="gradient">마우스를 올려봐</div>
+</body>
+
+</html>
