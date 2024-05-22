@@ -3,6 +3,7 @@ tmp
 temp
 .idea
 .vscode
+__pycache__
 
 # 파일제외
 .DS_Store
