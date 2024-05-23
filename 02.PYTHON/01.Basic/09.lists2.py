@@ -15,6 +15,12 @@ print(short_words)
 # 중첩 리스트 펼치기
 nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flattened_list = [x for y in nested_list for x in y]
+
+# flattened_list = []
+# for y in nested_list:
+#     for x in y:
+#         flattened_list.append(x)
+
 print(flattened_list)
 # 출력: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 

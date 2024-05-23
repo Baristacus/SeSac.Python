@@ -171,11 +171,12 @@ def rand_pass2():
         rand_pass2_num = random.sample(num, 1)
         return rand_pass2_list.append(rand_pass2_num)
 
-    while len(rand_pass2_list) < 12:
+    while len(rand_pass2_list) < 8:
         rand_pass2_A()
         rand_pass2_a()
         rand_pass2_num()
 
+    random.shuffle(rand_pass2_list)
     aaa = [x for y in rand_pass2_list for x in y]
     bbb = "".join(str(x) for x in aaa)
 
@@ -183,3 +184,18 @@ def rand_pass2():
 
 
 print(f"랜덤 비밀번호 생성(8-2): {rand_pass2()}")
+
+
+def rand_pass3(number):
+    char_num = char_A + char_a + num
+    ppp = [random.choice(char_A), random.choice(char_a), random.choice(num)]
+
+    while len(ppp) < number:
+        ppp.append(random.choice(char_num))
+
+    random.shuffle(ppp)
+
+    return "".join(str(x) for x in ppp)
+
+
+print(f"랜덤 비밀번호 생성(8-2): {rand_pass3(8)}")
