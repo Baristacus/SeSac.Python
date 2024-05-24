@@ -7,7 +7,7 @@ class Person:
     age = 0
     status1 = "playing"
 
-    def __init__(self, name, age):  # 초기화 함수
+    def __init__(self, name, age):  # 초기화 함수(선택사항)
         self.name = name
         self.age = age
 
