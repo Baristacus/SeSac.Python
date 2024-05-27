@@ -57,7 +57,7 @@ def my_cal():
     start_week = day_of_week(year, month)
 
     line_print(30, "=")
-    print(f"{year}년 {month}월 달력")
+    print(f" {year}년 {month}월 달력")
     line_print(30, "-")
     print("  일  월  화  수  목  금  토")
 
