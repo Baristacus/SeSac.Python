@@ -13,7 +13,6 @@ import os
 import csv
 import uuid
 import random
-from itertools import chain
 
 current_file_path = os.path.abspath(__file__)
 current_folder = os.path.dirname(current_file_path)
