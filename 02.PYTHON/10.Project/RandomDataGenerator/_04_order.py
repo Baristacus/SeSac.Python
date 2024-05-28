@@ -28,12 +28,14 @@ def create_save_file(file_path):
             file_save.writeheader()
 
 
-order_year = random.randint(2024, 2025)
-order_month = random.randint(1, 12)
-order_day = random.randint(1, 28)
-order_hour = random.randint(0, 23)
-order_minute = random.randint(0, 59)
-order_second = random.randint(0, 59)
+def order_date():
+    year = random.randint(2023, 2024)
+    month = random.randint(1, 12)
+    day = random.randint(1, 28)
+    hour = random.randint(0, 23)
+    minute = random.randint(0, 59)
+    second = random.randint(0, 59)
+    return f"{year}-{month:02d}-{day:02d} {hour:02d}:{minute:02d}:{second:02d}"
 
 
 def store_data():
@@ -57,19 +59,15 @@ def user_data():
 def order_generator():
     create_save_file(file_path)
     create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+
     order_list = []
     for _ in range(create_number):
-        order_id = str(uuid.uuid4())
-        order_date = f"{order_year}-{order_month:02d}-{order_day:02d} {order_hour:02d}:{order_minute:02d}:{order_second:02d}"
-        store_id = store_data()
-        user_id = user_data()
-
         order_list.append(
             {
-                "Id": order_id,
-                "OrderAt": order_date,
-                "StoreId": store_id,
-                "UserId": user_id,
+                "Id": str(uuid.uuid4()),
+                "OrderAt": order_date(),
+                "StoreId": store_data(),
+                "UserId": user_data(),
             }
         )
 

@@ -91,17 +91,12 @@ def store_generator():
     create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
     store_list = []
     for _ in range(create_number):
-        uuid = store_uuid()
-        name = store_name()
-        type = store_type()
-        address = store_address()
-
         store_list.append(
             {
-                "Id": uuid,
-                "Name": name,
-                "Type": type,
-                "Address": address,
+                "Id": store_uuid(),
+                "Name": store_name(),
+                "Type": store_type(),
+                "Address": store_address(),
             }
         )
 

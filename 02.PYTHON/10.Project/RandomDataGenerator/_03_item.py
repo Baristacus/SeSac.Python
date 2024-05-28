@@ -29,7 +29,7 @@ def create_save_file(file_path):
 
 
 def item_type_price():
-    id = str(uuid.uuid4())
+    item_id = str(uuid.uuid4())
     category = random.choice(["Coffee", "Non-Coffee", "Bakery"])
 
     # Coffee
@@ -40,7 +40,7 @@ def item_type_price():
             file_read = csv.DictReader(file)
             coffee_list = [x for x in file_read]
             coffee = random.choice(coffee_list)
-            return id, category, coffee["Menu"], coffee["Price"]
+            return item_id, category, coffee["Menu"], coffee["Price"]
 
     # Non-Coffee
     if category == "Non-Coffee":
