@@ -1,11 +1,11 @@
 """주문 생성기
 
-- [ ] order_uuid : UUID 랜덤 생성
-- [ ] order_date : 2023-03-26 13:37:31 - 2023년 5월 ~ 2024년 5월
-- [ ] storeid : store.csv에서 랜덤 가져오기
-- [ ] userid : user.csv에서 랜덤 가져오기
+- [v] order_uuid : UUID 랜덤 생성
+- [v] order_date : YYYY-MM-DD HH:MM:SS 랜덤 생성 - 2023년 ~ 2024년
+- [v] storeid : store.csv에서 랜덤 가져오기
+- [v] userid : user.csv에서 랜덤 가져오기
 
-[ ] 결과 : order.csv
+[v] 결과 : order.csv
 Id,OrderAt,StoreId,UserId
 """
 
