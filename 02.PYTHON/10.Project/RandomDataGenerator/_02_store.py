@@ -88,7 +88,7 @@ def store_address():
 
 def store_generator():
     create_save_file(file_path)
-    create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
     store_list = []
     for _ in range(create_number):
         store_list.append(
@@ -105,14 +105,4 @@ def store_generator():
         store_save = csv.DictWriter(file, fieldnames=headers)
         store_save.writerows(store_list)
 
-    return print(f"{create_number}개의 데이터가 'store.csv'파일에 저장되었습니다.")
-
-
-# TEST
-# print(store_uuid())
-# print(store_name())
-# print(store_type())
-# print(store_address())
-# print(store_generator())
-
-store_generator()
+    return print(f"  {create_number}개의 데이터가 'store.csv'파일에 저장되었습니다.")

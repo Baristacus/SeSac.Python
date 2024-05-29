@@ -106,7 +106,7 @@ def user_address():
 
 def user_generator():
     create_save_file(file_path)
-    create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
     user_list = []
     for _ in range(create_number):
         uuid = user_uuid()
@@ -132,19 +132,4 @@ def user_generator():
         user_save = csv.DictWriter(file, fieldnames=headers)
         user_save.writerows(user_list)
 
-    return print(f"{create_number}개의 데이터가 'user.csv'파일에 저장되었습니다.")
-
-
-# TEST
-# print(f"UUID: {user_uuid()}")
-# print(f"이름: {user_name()}")
-# print(f"성별: {user_gender()}")
-# print(f"생년월일: {user_birthday_age()}")
-# print(f"주소: {user_address()}")
-# print(
-#     f"{user_uuid()}, {user_name()}, {user_gender()}, {user_birthday_age()}, {user_address()}"
-# )
-# print(user_generator(5))
-
-
-user_generator()
+    return print(f"  {create_number}개의 데이터가 'user.csv'파일에 저장되었습니다.")

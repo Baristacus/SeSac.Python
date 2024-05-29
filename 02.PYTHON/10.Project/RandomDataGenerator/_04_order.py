@@ -58,7 +58,7 @@ def user_data():
 
 def order_generator():
     create_save_file(file_path)
-    create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
 
     order_list = []
     for _ in range(create_number):
@@ -75,12 +75,4 @@ def order_generator():
         headers = ["Id", "OrderAt", "StoreId", "UserId"]
         order_save = csv.DictWriter(file, fieldnames=headers)
         order_save.writerows(order_list)
-    return print(f"{create_number}개의 데이터가 'order.csv'파일에 저장되었습니다.")
-
-
-# TEST
-# print(order_date)
-# print(store_data())
-# print(user_data())
-
-order_generator()
+    return print(f"  {create_number}개의 데이터가 'order.csv'파일에 저장되었습니다.")

@@ -12,7 +12,6 @@ import os
 import csv
 import uuid
 import random
-import pretty_errors
 
 current_file_path = os.path.abspath(__file__)
 current_folder = os.path.dirname(current_file_path)
@@ -48,7 +47,7 @@ def item_data():
 
 def orderitem_generator():
     create_save_file(file_path)
-    create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
 
     orderitem_list = []
     for _ in range(create_number):
@@ -64,7 +63,6 @@ def orderitem_generator():
         headers = ["Id", "OrderId", "ItemId"]
         orderitem_save = csv.DictWriter(file, fieldnames=headers)
         orderitem_save.writerows(orderitem_list)
-    return print(f"{create_number}개의 데이터가 'orderitem.csv'파일에 저장되었습니다.")
-
-
-orderitem_generator()
+    return print(
+        f"  {create_number}개의 데이터가 'orderitem.csv'파일에 저장되었습니다."
+    )

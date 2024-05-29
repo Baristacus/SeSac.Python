@@ -65,7 +65,7 @@ def item_type_price():
 
 def item_generator():
     create_save_file(file_path)
-    create_number = int(input("생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
     item_list = []
     for _ in range(create_number):
         item_list.append(item_type_price())
@@ -74,9 +74,4 @@ def item_generator():
         item_save = csv.writer(file)
         item_save.writerows(item_list)
 
-    return print(f"{create_number}개의 데이터가 'item.csv'파일에 저장되었습니다.")
-
-
-# TEST
-# print(item_type_price())
-item_generator()
+    return print(f"  {create_number}개의 데이터가 'item.csv'파일에 저장되었습니다.")
