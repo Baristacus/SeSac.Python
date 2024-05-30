@@ -106,7 +106,9 @@ def user_address():
 
 def user_generator():
     create_save_file(file_path)
-    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(
+        input("  사용자 생성 >>> 생성하려는 데이터의 갯수를 입력하세요: ")
+    )
     user_list = []
     for _ in range(create_number):
         uuid = user_uuid()

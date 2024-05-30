@@ -1,4 +1,4 @@
-from _00_menu import *
+from _00_menu import generator_menu
 
 if __name__ == "__main__":
-    print()
+    generator_menu(0)

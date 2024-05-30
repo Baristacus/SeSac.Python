@@ -50,7 +50,7 @@ def item_type_price():
             file_read = csv.DictReader(file)
             noncoffee_list = [x for x in file_read]
             noncoffee = random.choice(noncoffee_list)
-            return id, category, noncoffee["Menu"], noncoffee["Price"]
+            return item_id, category, noncoffee["Menu"], noncoffee["Price"]
 
     # Bakery
     if category == "Bakery":
@@ -60,12 +60,14 @@ def item_type_price():
             file_read = csv.DictReader(file)
             bakery_list = [x for x in file_read]
             bakery = random.choice(bakery_list)
-            return id, category, bakery["Menu"], bakery["Price"]
+            return item_id, category, bakery["Menu"], bakery["Price"]
 
 
 def item_generator():
     create_save_file(file_path)
-    create_number = int(input("  생성하려는 데이터의 갯수를 입력하세요: "))
+    create_number = int(
+        input("  메뉴 생성 >>> 생성하려는 데이터의 갯수를 입력하세요: ")
+    )
     item_list = []
     for _ in range(create_number):
         item_list.append(item_type_price())
