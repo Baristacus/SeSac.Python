@@ -65,9 +65,7 @@ def item_type_price():
 
 def item_generator():
     create_save_file(file_path)
-    create_number = int(
-        input("  메뉴 생성 >>> 생성하려는 데이터의 갯수를 입력하세요: ")
-    )
+    create_number = int(input("  >>> 생성하려는 메뉴 데이터의 갯수를 입력하세요: "))
     item_list = []
     for _ in range(create_number):
         item_list.append(item_type_price())

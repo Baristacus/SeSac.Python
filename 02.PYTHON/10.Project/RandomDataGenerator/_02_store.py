@@ -88,9 +88,7 @@ def store_address():
 
 def store_generator():
     create_save_file(file_path)
-    create_number = int(
-        input("  상점 생성 >>> 생성하려는 데이터의 갯수를 입력하세요: ")
-    )
+    create_number = int(input("  >>> 생성하려는 상점 데이터의 갯수를 입력하세요: "))
     store_list = []
     for _ in range(create_number):
         store_list.append(
