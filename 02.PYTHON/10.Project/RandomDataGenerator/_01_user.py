@@ -41,7 +41,6 @@ def user_uuid():
 def user_name():
 
     # last_name : 성
-    last_name = ""
     with open("random_data/last_name_data.csv", "r", encoding="UTF-8") as file:
         file_read = csv.reader(file)
         origin_names_list = [x for x in file_read]
@@ -50,7 +49,6 @@ def user_name():
         last_name = random.choice(names_list)
 
     # first_name : 이름
-    first_name = ""
     with open("random_data/first_name_data.csv", "r", encoding="UTF-8") as file:
         file_read = csv.reader(file)
         origin_names_list = [x for x in file_read]
@@ -109,22 +107,18 @@ def user_generator():
     create_number = int(input("  >>> 생성하려는 사용자 데이터의 갯수를 입력하세요: "))
     user_list = []
     for _ in range(create_number):
-        uuid = user_uuid()
-        name = user_name()
-        gender = user_gender()
         birthday_age = user_birthday_age()
         birthday = birthday_age[:10]
         age = birthday_age[12:]
-        address = user_address()
 
         user_list.append(
             {
-                "Id": uuid,
-                "Name": name,
-                "Gender": gender,
+                "Id": user_uuid(),
+                "Name": user_name(),
+                "Gender": user_gender(),
                 "Birthday": birthday,
                 "Age": int(age),
-                "Address": address,
+                "Address": user_address(),
             }
         )
     with open(file_path, "a", encoding="UTF-8", newline="") as file:
