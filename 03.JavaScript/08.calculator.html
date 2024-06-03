@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+
+    <link rel="stylesheet" href="08.calculator.css">
+</head>
+
+<body>
+    <div id="container">
+        <h2>JS CALCULATOR</h2>
+        <input id="inputBox" onkeypress="enterKey(event)" type="text">
+        <div id="operatorBox">
+            <button id="clear" class="operatorBtn numberBtn" onclick="inputBox.value = ''">C</button>
+            <button id="plus" class="operatorBtn numberBtn" onclick="inputBox.value += '+'">+</button>
+            <button id="minus" class="operatorBtn numberBtn" onclick="inputBox.value += '-'">-</button>
+            <button id="square" class="operatorBtn numberBtn" onclick="inputBox.value += '**'">**</button>
+            <button id="multiply" class="operatorBtn numberBtn" onclick="inputBox.value +='*'">*</button>
+            <button id="divide" class="operatorBtn numberBtn" onclick="inputBox.value += ' /'">/</button>
+        </div>
+        <hr class="hr">
+        <div id="numberBox">
+            <button class="numberBtn" onclick="inputBox.value += '7'">7</button>
+            <button class="numberBtn" onclick="inputBox.value += '8'">8</button>
+            <button class="numberBtn" onclick="inputBox.value += '9'">9</button>
+            <button class="numberBtn" onclick="inputBox.value += '4'">4</button>
+            <button class="numberBtn" onclick="inputBox.value += '5'">5</button>
+            <button class="numberBtn" onclick="inputBox.value += '6'">6</button>
+            <button class="numberBtn" onclick="inputBox.value += '1'">1</button>
+            <button class="numberBtn" onclick="inputBox.value += '2'">2</button>
+            <button class="numberBtn" onclick="inputBox.value += '3'">3</button>
+            <button class="numberBtn" onclick="inputBox.value += '0'">0</button>
+            <button class="numberBtn" onclick="inputBox.value += '.'">.</button>
+            <button id="equal" class="operatorBtn numberBtn" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script src="08.calculator.js"></script>
+</body>
+
+</html>

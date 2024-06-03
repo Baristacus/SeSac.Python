@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Show Hide</title>
+
+    <style>
+        #box {
+            border: 2px solid orange;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            background-color: white;
+        }
+
+        button:hover {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+
+    <script src="06.showhide.js"></script>
+</head>
+
+<body>
+    <button onclick="boxShow()">Show</button>
+    <button onclick="boxHidden()">Hidden</button>
+    <button onclick="boxToggle()">Toggle</button>
+    <div id="box">BOX</div>
+
+</body>
+
+</html>
