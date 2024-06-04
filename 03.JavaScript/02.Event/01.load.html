@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Load Event</title>
+</head>
+
+<body>
+    <script>
+        // HTML 요소를 다 불러왔을때
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("DOM 로딩 완료")
+        })
+
+        // HTML, CSS, JS 모든 요소를 다 불러왔을때
+        window.onload = function () {
+            console.log("모든 컨텐츠 로딩 완료")
+        }
+    </script>
+</body>
+
+</html>

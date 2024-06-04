@@ -12,16 +12,20 @@
 <body>
     <div id="container">
         <h2>JS CALCULATOR</h2>
+
         <input id="inputBox" onkeypress="enterKey(event)" type="text">
+
         <div id="operatorBox">
             <button id="clear" class="operatorBtn numberBtn" onclick="inputBox.value = ''">C</button>
-            <button id="plus" class="operatorBtn numberBtn" onclick="inputBox.value += '+'">+</button>
+            <button id="plus" class="operatorBtn numberBtn" onclick="">+</button>
             <button id="minus" class="operatorBtn numberBtn" onclick="inputBox.value += '-'">-</button>
-            <button id="square" class="operatorBtn numberBtn" onclick="inputBox.value += '**'">**</button>
-            <button id="multiply" class="operatorBtn numberBtn" onclick="inputBox.value +='*'">*</button>
-            <button id="divide" class="operatorBtn numberBtn" onclick="inputBox.value += ' /'">/</button>
+            <button id="square" class="operatorBtn numberBtn" onclick="inputBox.value += '**'">×²</button>
+            <button id="multiply" class="operatorBtn numberBtn" onclick="inputBox.value +='*'">×</button>
+            <button id="divide" class="operatorBtn numberBtn" onclick="inputBox.value += '/'">÷</button>
         </div>
+
         <hr class="hr">
+
         <div id="numberBox">
             <button class="numberBtn" onclick="inputBox.value += '7'">7</button>
             <button class="numberBtn" onclick="inputBox.value += '8'">8</button>
