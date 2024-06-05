@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open API Ajax</title>
+</head>
+
+<body>
+    <h1>랜덤 강아지 이미지</h1>
+    <button onclick="requestDogImg()">강아지 랜덤가져오기</button>
+    <br>
+    <br>
+    <img src="" alt="강아지 랜덤 이미지" id="dogimg" width="500">
+</body>
+
+<script>
+    const dogElement = document.getElementById("dogimg")
+
+    const requestDogImg = async () => {
+        const response = await fetch("https://dog.ceo/api/breeds/image/random")
+        const data = await response.json()
+        dogElement.src = data.message
+    }
+
+    requestDogImg()
+</script>
+
+</html>
