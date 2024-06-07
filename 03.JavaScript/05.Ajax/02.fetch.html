@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Ajax</title>
+
+    <script src="
+        https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+        "></script>
+</head>
+
+<body>
+    <h1>로딩 Form 외부 서버</h1>
+    <div id="contentContainer"></div>
+    <button id="loadBtn">데이터 불러오기</button>
+
+    <script>
+        // $(document).ready(function () {
+        //     $('#loadBtn').click(function () {
+        //         $.ajax({
+        //             url: 'https://jsonplaceholder.typicode.com/posts/1',
+        //             method: 'GET',
+        //             success: function (data) {
+        //                 $('#contentContainer').html(
+        //                     `<p>Title: ` + data.title + `</p>` +
+        //                     `<p>Body: ` + data.body + `</p>`
+        //                 )
+        //             }
+        //         })
+        //     })
+        // })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("loadBtn").addEventListener("click", async function () {
+                await fetch("https://jsonplaceholder.typicode.com/posts/2")
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("contentContainer").innerHTML =
+                            `<p>Title: ` + data.title + `</p>` +
+                            `<p>Body: ` + data.body + `</p>`
+                    })
+            })
+        })
+    </script>
+</body>
+
+</html>

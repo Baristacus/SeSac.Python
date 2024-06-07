@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100dvh;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #text {
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    1. 버튼 만들기
+    2. 버튼 누르면 랜덤값 RGB 생성
+    3. RGB값 TEXT 생성
+    3. 해당 값을 배경색상으로 지정
+    -->
+
+    <div class="container">
+        <button id="btn">Background Color Changer</button>
+        <h2 id="text">RGB(255, 255, 255)</h2>
+    </div>
+
+    <script>
+        function randomBGColor() {
+            let changeBtn = document.getElementById("btn")
+            changeBtn.addEventListener("click", function () {
+                // floor : 정수로 변환
+                let r = Math.floor(Math.random() * 256)
+                let g = Math.floor(Math.random() * 256)
+                let b = Math.floor(Math.random() * 256)
+                document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+                document.getElementById("text").innerHTML = `RGB(${r}, ${g}, ${b})`
+            })
+        }
+
+        randomBGColor()
+    </script>
+</body>
+
+</html>

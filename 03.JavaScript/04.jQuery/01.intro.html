@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+    "></script>
+</head>
+
+<body>
+    <h1 id="myText">Hello jQuery</h1>
+    <button id="myButton">Change Text</button>
+
+    <script>
+        //document.addEventListener("DOMContentLoaded", function () {
+        //    document.getElementById("myButton").addEventListener("click", function () {
+        //        document.getElementById("myText").innerHTML = "Hello"
+        //    })
+        //})
+
+        $(document).ready(function () {
+            $('#myButton').click(function () {
+                $('#myText').text("Hello")
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Ajax</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #contentContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #userIdInput {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        #userLoadBtn {
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #infoInner {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search User</h1>
+    <div id="contentContainer">
+        <input type="text" id="userIdInput" placeholder="유저아이디를 입력하시오">
+        <button id="userLoadBtn" onclick="loadUser()">불러오기</button>
+        <div id="userInfo"></div>
+    </div>
+
+    <script>
+        function loadUser() {
+            const userId = userIdInput.value
+            const url = "https://jsonplaceholder.typicode.com/users/"
+            const resultDiv = document.getElementById("userInfo")
+            fetch(url + userId)
+                .then(response => response.json())
+                .then(user => displayUser(user))
+                .catch(error => console.log(error))
+        }
+
+        function displayUser(user) {
+            document.getElementById("userInfo").innerHTML =
+                `<div id='infoInner'><p><strong>Name</strong>: ` + user.name + `</p>` +
+                `<p><strong>Email</strong>: ` + user.email + `</p>` +
+                `<p><strong>Phone</strong>: ` + user.phone + `</p>` +
+                `<p><strong>Website</strong>: ` + user.website + `</p></div>`
+        }
+    </script>
+</body>
+
+</html>

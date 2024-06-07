@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+    "></script>
+</head>
+
+<body>
+    <h1>쇼핑리스트</h1>
+    <ul id="shoppingList">
+        <li>Bread</li>
+        <li>Milk</li>
+        <li>Eggs</li>
+    </ul>
+
+    <input type="text" id="newItem" placeholder="추가할 상품 입력">
+    <button id="addItem">상품 추가</button>
+
+    <script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     document.getElementById("addItem").addEventListener("click", function () {
+        //         document.getElementById("shoppingList").innerHTML += (`<li>${document.getElementById("newItem").value}</li>`)
+        //         document.getElementById("newItem").value = ""
+        //         document.getElementById("newItem").focus()
+        //     })
+        // })
+
+        $(document).ready(function () {
+            $('#addItem').click(function () {
+                if ($('#newItem').val() !== '') {
+                    $('#shoppingList').append(`<li>` + newItem.value + `</li>`)
+                    $('#newItem').val('')
+                    $('#newItem').focus()
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
