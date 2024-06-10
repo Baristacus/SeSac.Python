@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Template</title>
+</head>
+
+<body>
+    {% if username %}
+    <h1>Hello, {{ username.upper() }}!</h1>
+    {% else %}
+    <h1>Hello, World!</h1>
+    {% endif %}
+
+    <ul>
+        {% for friend in friends %}
+        <li>{{ friend }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
