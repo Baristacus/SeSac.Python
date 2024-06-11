@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask CSV</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 1200px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: orange;
+        }
+
+        tr:hover {
+            background-color: orange;
+        }
+
+        #pagination {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello, World!</h1>
+
+    <table>
+        <thead>
+            <tr>
+                {% for h in header %}
+                <th>{{ h }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users[1:] %}
+            <tr>
+                {% for data in user %}
+                <td>{{ data }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="pagination">
+
+        {% if current_page != 1 %}
+        <div>
+            <a href="/1">첫 페이지로 이동</a>
+        </div>
+        {% endif %}
+
+
+        {% if current_page <= 7 %} {% for page in range(1, current_page) %} <a href="/{{ page }}">{{ page }}</a>
+            {% endfor %}
+            {% else %}
+            {% for page in range(current_page - 7, current_page) %}
+            <a href="/{{ page }}">{{ page }}</a>
+            {% endfor %}
+            {% endif %}
+
+
+            <div style="color: red;"> ... </div>
+            <div style="color: red;">현재페이지: {{ current_page }}</div>
+            <div style="color: red;"> ... </div>
+
+
+            {% if current_page >= total_page - 6 %}
+            {% for page in range(current_page + 1, total_page + 1) %}
+            <a href="/{{ page }}">{{ page }}</a>
+            {% endfor %}
+            {% else %}
+            {% for page in range(current_page + 1, current_page + 8) %}
+            <a href="/{{ page }}">{{ page }}</a>
+            {% endfor %}
+            {% endif %}
+
+
+            {% if current_page != total_page %}
+            <div>
+                <a href="/{{ total_page }}">마지막 페이지로 이동</a>
+            </div>
+            {% endif %}
+
+
+    </div>
+
+    <br>
+
+    <div>현재페이지: {{ current_page }} / 총페이지: {{ total_page }}</div>
+
+    <br>
+
+    <div id="search">
+        <form action="/search" method="GET">
+            <input type="text" name="kw" placeholder="검색어 입력">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+
+</html>

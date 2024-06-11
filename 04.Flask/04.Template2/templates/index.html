@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Web</title>
+
+    <style>
+        table {
+            width: 800px;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: orange;
+        }
+
+        tbody {
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        tr:hover {
+            background-color: orange;
+        }
+
+        input[type="text"] {
+            background-color: #ffffff;
+            color: white;
+            padding: 5px;
+            border: none;
+        }
+
+        input[type="number"] {
+            background-color: #ffffff;
+            color: white;
+            padding: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: #3b5675;
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <!-- 검색창 추가 -->
+    <form action="/search" method="GET">
+        <input type="text" name="name" placeholder="Name">
+        <input type="number" name="age" placeholder="Age">
+        <input type="submit" value="Search">
+    </form>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Car</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.location }}</td>
+                {% if user.car == "" %}
+                <td>Famaly car</td>
+                {% else %}
+                <td>{{ user.car }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
