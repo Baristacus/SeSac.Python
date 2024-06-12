@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flask CSV</title>
+
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 1200px;
+            }
+
+            th,
+            td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: center;
+            }
+
+            thead {
+                background-color: orange;
+            }
+
+            tr:hover {
+                background-color: orange;
+            }
+
+            #pagination {
+                display: inline-block;
+            }
+        </style>
+    </head>
+
+    <body>
+        {% for user in users %}
+        <h1>Hello, {{user.Name}}</h1>
+        {% endfor %}
+
+        <table>
+            <thead>
+                <tr>
+                    {% for h in header %}
+                    <th>{{ h }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for user in users %}
+                    <th>{{ user.Id }}</th>
+                    <th>{{ user.Name }}</th>
+                    <th>{{ user.Gender }}</th>
+                    <th>{{ user.Birthday }}</th>
+                    <th>{{ user.Age }}</th>
+                    <th>{{ user.Address }}</th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

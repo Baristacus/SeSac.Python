@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flask Static</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}" />
+    </head>
+    <body>
+        <h1>Flask Static</h1>
+
+        <div>
+            <img
+                src="{{ url_for('static', filename='img/sample_1.jpg') }}"
+                alt="" />
+        </div>
+
+        <div><button type="button" id="myButton">버튼 클릭</button></div>
+
+        <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+    </body>
+</html>

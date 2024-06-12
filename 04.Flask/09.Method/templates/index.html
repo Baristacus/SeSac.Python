@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flask Method</title>
+    </head>
+    <body>
+        <h1>Flask Method</h1>
+
+        {% if not user %}
+        <h2>로그인</h2>
+        <form method="POST">
+            <div>아아디: <input type="text" name="id" id="id" /></div>
+            <div>
+                패스워드:
+                <input type="password" name="password" id="password" />
+            </div>
+            <button type="submit">로그인</button>
+        </form>
+
+        {% else %}
+        <h2>로그인된 사용자: {{ user.name }}</h2>
+        {% endif %}
+    </body>
+</html>

@@ -18,7 +18,7 @@
                 text-align: center;
             }
 
-            th {
+            thead {
                 background-color: orange;
             }
 
@@ -30,6 +30,8 @@
                 display: inline-block;
             }
         </style>
+
+        <script></script>
     </head>
 
     <body>
@@ -38,17 +40,20 @@
         <table>
             <thead>
                 <tr>
-                    {% for h in header %}
+                    {% for h in header %} {% if h != "Id" and h != "Address" %}
                     <th>{{ h }}</th>
-                    {% endfor %}
+                    {% endif %} {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for user in users[1:] %}
+                {% for user in users %}
                 <tr>
-                    {% for data in user %}
-                    <td>{{ data }}</td>
-                    {% endfor %}
+                    <!-- <th>{{ user.Id }}</th> -->
+                    <th><a href="/user/{{ user.Id }}">{{ user.Name }}</a></th>
+                    <th>{{ user.Gender }}</th>
+                    <th>{{ user.Birthday }}</th>
+                    <th>{{ user.Age }}</th>
+                    <!-- <th>{{ user.Address }}</th> -->
                 </tr>
                 {% endfor %}
             </tbody>
