@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Session Login - Profile</title>
+</head>
+
+<body>
+    <h1>Hello {{user.name}}</h1>
+
+    <div>ID : {{user.id}}</div>
+    <div>Password : {{user.password}}</div>
+    <div style="color: red;">
+        {% if newpassowrd %}
+        <p>{{massage}}<br>
+            {{newpassowrd}}</p>
+        {% endif %}
+    </div>
+    <div>
+        <form action="/profile" method="POST">
+            <label for="newpassword">비밀번호 변경 :</label>
+            <input type="password" name="newpassword" id="newpassword" required>
+            <button type="submit">비밀번호 변경</button>
+        </form>
+    </div>
+
+    <a href="/logout">로그아웃</a>
+</body>
+
+</html>

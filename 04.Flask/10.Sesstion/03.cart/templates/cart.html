@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Session Shopping Cart</title>
+</head>
+
+<body>
+    <h1>장바구니</h1>
+    <a href="{{ url_for('clear_cart') }}">장바구니 전체 삭제</a>
+    <hr>
+    <div>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>상품이미지</th>
+                <th>상품명</th>
+                <th>수량</th>
+                <th>가격</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item_name, item_info in cart_items.items() %}
+            <tr>
+                <td><img src="{{ url_for('static', filename='img/' + item_info['image']) }}" width="100"></td>
+                <td>{{ item_info["name"] }}</td>
+                <td>{{ item_info["quantity"] }}</td>
+                <td>{{ item_info["price"] }}</td>
+                <td><a href="{{ url_for('remove_from_cart', item_name=item_name) }}">❌</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+    <div>총 상품가격: {{ total_price }}원</div>
+</body>
+
+</html>

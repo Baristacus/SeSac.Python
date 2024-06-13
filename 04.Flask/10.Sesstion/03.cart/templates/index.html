@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Session Shopping Cart</title>
+</head>
+
+<body>
+    <h1>상품목록</h1>
+    <div id="products">
+        <ul>
+            {% for item_name, item_info in items.items() %}
+            <li>
+                {{ item_info.name }} (가격: {{ "{:,}".format(item_info.price) }}원)
+                <a href="{{ url_for('add_cart', item_name=item_name) }}">상품담기</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <a href="{{ url_for('cart') }}">장바구니 가기</a>
+    </div>
+</body>
+
+</html>
