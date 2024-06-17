@@ -10,3 +10,6 @@ __pycache__
 desktop.ini
 *.tmp
 *.temp
+# *.db
+# *.sqlite
+# *.sqlite3
