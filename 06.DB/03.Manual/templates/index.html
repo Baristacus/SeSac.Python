@@ -4,6 +4,15 @@
 
 {% block content %}
 <H1>Home Page</H1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 {% if session.user %}
 <p>Welcome, {{ session.user }}</p>
 {% else %}

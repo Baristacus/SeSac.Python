@@ -16,7 +16,7 @@ SELECT FirstName ||' '|| LastName AS '판매 대리인' FROM employees WHERE Tit
 
 -- [ ] 5. 송장 테이블에서 청구 국가의 고유/고유 목록을 표시하는 쿼리를 제공합니다.
 
-SELECT DISTINCT(BillingCountry) FROM invoices;
+SELECT DISTINCT(BillingCountry) FROM invoices ORDER BY BillingCountry;
 
 -- [ ] 6. 각 판매 에이전트와 연결된 송장을 표시하는 쿼리를 제공합니다. 결과 테이블에는 영업 에이전트의 전체 이름이 포함되어야 합니다.
 
@@ -55,12 +55,20 @@ SELECT c.FirstName ||' '|| c.LastName AS Customer, i.BillingCountry, e.FirstName
 
 -- [ ] 22. 국가별 총 매출을 보여주는 쿼리를 제공한다.
 
--- [ ] 23. 고객이 가장 많이 지출한 국가는 어디입니까?
+-- [v] 23. 고객이 가장 많이 지출한 국가는 어디입니까?
+
+SELECT BillingCountry, MAX(Total) FROM (SELECT BillingCountry, SUM(Total) AS Total FROM invoices GROUP BY BillingCountry);
 
 -- [ ] 24. 2013년 가장 많이 구매한 트랙을 보여주는 쿼리를 제공합니다.
 
 -- [ ] 25. 가장 많이 구매한 상위 5곡을 보여주는 쿼리를 제공합니다.
 
+SELECT t.Name AS TrackName, COUNT(ii.TrackId) AS PurchaseCount FROM invoice_items ii JOIN tracks t ON ii.TrackId = t.TrackId GROUP BY ii.TrackId, t.Name ORDER BY PurchaseCount DESC LIMIT 5;
+
 -- [ ] 26. 가장 많이 팔린 3명의 아티스트를 보여주는 쿼리를 제공합니다.
 
+SELECT ar.Name AS ArtistName, COUNT(ii.TrackId) AS TotalSales FROM invoice_items ii JOIN tracks t ON ii.TrackId = t.TrackId JOIN albums al ON t.AlbumId = al.AlbumId JOIN artists ar ON al.ArtistId = ar.ArtistId GROUP BY ar.ArtistId, ar.Name ORDER BY TotalSales DESC LIMIT 3;
+
 -- [ ] 27. 가장 많이 구매한 Media Type을 보여주는 쿼리를 제공한다.
+
+SELECT mt.Name AS MediaTypeName, COUNT(ii.TrackId) AS PurchaseCount FROM invoice_items ii JOIN tracks t ON ii.TrackId = t.TrackId JOIN media_types mt ON t.MediaTypeId = mt.MediaTypeId GROUP BY mt.MediaTypeId, mt.Name ORDER BY PurchaseCount DESC LIMIT 1;
