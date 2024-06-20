@@ -23,7 +23,7 @@ file_path = os.path.join(current_folder, "item.csv")
 def create_save_file(file_path):
     if not os.path.exists(file_path):
         with open(file_path, "w", encoding="UTF-8", newline="") as file:
-            headers = ["Id", "Name", "Type", "UnitPrice"]
+            headers = ["Id", "Type", "Name", "UnitPrice"]
             file_save = csv.DictWriter(file, fieldnames=headers)
             file_save.writeheader()
 
