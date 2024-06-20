@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="#" method="POST">
+    <div class="justify-content-center my-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">SeSAC Python Board: 글 쓰기</div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="inputTitle" class="form-label">작성자(Username)</label>
+                    <input type="text" class="form-control" value="{{username}}" disabled required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputTitle" class="form-label">제목(Title)</label>
+                    <input type="text" id="inputTitle" name="inputTitle" class="form-control" tabindex="1"
+                        placeholder="제목을 입력하세요." required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputContent" class="form-label">내용(Content)</label>
+                    <textarea id="inputContent" name="inputContent" class="form-control" tabindex="2" rows="15"
+                        placeholder="내용을 입력하세요." required></textarea>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">글 쓰기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

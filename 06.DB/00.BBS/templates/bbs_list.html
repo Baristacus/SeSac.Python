@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="justify-content-center my-5">
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="card-title">SeSAC Python Board: 목록</div>
+        </div>
+        <div class="list-group list-group-flush">
+            {% if bbsList|length == 0 %}
+            <a href="#" class="list-group-item">등록된 글이 없습니다.</a>
+            {% else %}
+            {% for bbs in bbsList %}
+            <a href="{{ url_for('bbsView', id=bbs.id) }}" class="list-group-item list-group-item-action">제목:
+                {{bbs.title}}
+                <br>
+                <small class="card-text">작성자: {{bbs.username}}</small>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <a href="{{ url_for('bbsWrite') }}" class="btn btn-primary">새 글 쓰기</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

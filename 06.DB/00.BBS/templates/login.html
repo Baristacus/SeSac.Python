@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="#" method="POST">
+    <div class="justify-content-center my-5">
+        <div class="card">
+            <div class=" card-header">
+                <div class="card-title">SeSAC Python Board: 로그인</div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="inputUsername" class="form-label">아이디(Username)</label>
+                    <input type="username" id="inputUsername" name="inputUsername" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword1" class="form-label">비밀번호(Password)</label>
+                    <input type="password" id="inputPassword" name="inputPassword" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">로그인</button>
+                    <a href="{{ url_for('signup') }}" class="btn btn-secondary" type="button">회원가입으로 이동</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

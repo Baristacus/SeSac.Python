@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="justify-content-center my-5">
+    <h1>SeSAC: 홈</h1>
+    {% if username %}
+    <h3>Hello, {{username}}</h3>
+    {% else %}
+    <h3>회원등록을 하셔야 게시판 기능을 이용하실 수 있습니다.</h3>
+    {% endif %}
+
+    <hr>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="card-title">SeSAC Python Board: 최근 글</div>
+        </div>
+        <div class="list-group list-group-flush">
+            {% if bbsList|length == 0 %}
+            <a href="#" class="list-group-item">등록된 글이 없습니다.</a>
+            {% else %}
+            {% for bbs in bbsList %}
+            <a href="{{ url_for('bbsView', id=bbs.id) }}" class="list-group-item list-group-item-action">제목:
+                {{bbs.title}}
+                <br>
+                <small class="card-text">작성자: {{bbs.username}}</small>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="card">
+        <div class="card-header">
+            현재 등록된 회원 목록
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for user in userList %}
+            <li class="list-group-item">{{user.username}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
