@@ -4,6 +4,7 @@ temp
 .idea
 .vscode
 __pycache__
+chromedriver*
 
 # 파일제외
 .DS_Store
