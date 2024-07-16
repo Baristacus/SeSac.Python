@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>음성 인식 퀴즈</h1>
+        <button id="qButton">퀴즈 질문 듣기</button>
+        <p id="status">상태: 준비 중...</p>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const qButton = document.getElementById("qButton");
+                const status = document.getElementById("status");
+
+                const questions = [
+                    {
+                        question: "대한민국의 수도는?",
+                        answer: "서울",
+                    },
+                    {
+                        question: "일본의 수도는?",
+                        answer: "도쿄",
+                    },
+                    {
+                        question: "미국의 수도는?",
+                        answer: "워싱턴",
+                    },
+                ];
+                let currentQuestionIndex = 0;
+
+                if (!("speechSynthesis" in window)) {
+                    status.innerText = "TTS 지원하지 않는 브라우저입니다.";
+                    return;
+                }
+
+                if (
+                    !(
+                        "SpeechRecognition" in window ||
+                        "webkitSpeechRecognition" in window
+                    )
+                ) {
+                    status.innerText = "STT 지원하지 않는 브라우저입니다.";
+                    return;
+                }
+
+                const synthesis = window.speechSynthesis;
+                const recognition = new (window.SpeechRecognition ||
+                    window.webkitSpeechRecognition)();
+                recognition.lang = "ko-KR";
+
+                const speak = (text) => {
+                    // 말하기 함수
+                    return new Promise((resolve) => {
+                        console.log("말하는중: ${text}");
+                        const speak = new SpeechSynthesisUtterance(text);
+                        synthesis.speak(speak);
+
+                        speak.onend = resolve;
+                    });
+                };
+
+                const countdown = () => {
+                    // 5초 카운트다운 함수
+                    return new Promise((resolve) => {
+                        let count = 5;
+                        const interval = setInterval(() => {
+                            console.log("카운트다운: ${count}");
+                            count -= 1;
+                            if (count === 0) {
+                                console.log("카운트다운 종료");
+                                clearInterval(interval);
+                                resolve();
+                            }
+                        }, 1000);
+                    });
+                };
+
+                const recognizeSpeech = () => {
+                    // 음성 인식 함수
+                    console.log("음성 인식 중...");
+                    return "음성인식이 안됨";
+                };
+
+                const checkAnswer = (text) => {
+                    console.log("답변 확인중: ${text}");
+                    if (text.includes(currentQuestion.answer)) {
+                        console.log("정답입니다.");
+                    } else {
+                        console.log("오답입니다.");
+                    }
+                };
+
+                // 버튼 이벤트 추가
+                qButton.addEventListener("click", async () => {
+                    const currentQuestion = questions[currentQuestionIndex];
+                    await speakText(currentQuestion.question);
+                    await countdown();
+                    status.textContent = "듣는 중...";
+                    const userAnswer = await recognizeSpeech();
+                    status.textContent = "사용자 답변: ${userAnswer}";
+                    // 정답 확인
+                    // 다음 문제로 이동
+                    currentQuestion =
+                        (currentQuestionIndex + 1) % questions.length;
+                });
+            });
+        </script>
+    </body>
+</html>
