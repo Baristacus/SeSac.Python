@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Koogle 검색결과: {{ query }}</h1>
+    {% for data in result %}
+    <div>
+        <h3>{{ data['title'] | safe }}</h3>
+        <p>{{ data['contents'] | safe }}</p>
+        <a href="{{ data['url'] }}" target="_blank">{{ data['url'] }}</a>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+
+</html>
